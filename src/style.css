@@ -1,0 +1,17 @@
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+/* .projects-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.show-projects-div {
+    display: flex;
+    flex-direction: column;
+} */
+.left-container-div {
+    background-color: aliceblue;
+}

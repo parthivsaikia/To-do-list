@@ -1,2 +1,4 @@
 import { loadUI } from "./ui";
-loadUI();
+document.addEventListener("DOMContentLoaded", function () {
+  loadUI();
+});
