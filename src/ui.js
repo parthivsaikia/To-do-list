@@ -1,4 +1,5 @@
-import { Projects, Project } from "./project";
+import { Projects, Project, addTaskToProject } from "./project";
+import { Task } from "./task";
 import "./style.css";
 function makeElement(name, className) {
   const element = document.createElement(name);
@@ -64,6 +65,17 @@ function tasksInput() {
     taskPriorityInput.append(taskPrioritySelection);
   }
   taskPriorityDiv.append(taskPriorityLabel, taskPriorityInput);
+
+  const projectSelection = makeElement("select", "project-selection");
+  for (let project of Projects) {
+    const projectOption = makeElement("option", "project-option");
+    if (project.name == "index") {
+      projectOption.selected == true;
+    }
+    projectOption.value = project.name;
+    projectOption.textContent = project.name;
+    projectSelection.append(projectOption);
+  }
   const btnDiv = makeElement("div", "btn-div");
   const cancelBtn = makeElement("button", "cancel-btn");
   cancelBtn.textContent = "Cancel";
@@ -72,13 +84,38 @@ function tasksInput() {
   });
   const addBtn = makeElement("button", "add-btn");
   addBtn.textContent = "Add";
+  addBtn.addEventListener("click", () => {
+    event.preventDefault();
+    const task = Task(
+      taskNameInput.value,
+      taskPriorityInput.value,
+      taskDescriptionInput.value,
+      taskDueDateInput.value,
+    );
+    const selectedProjectName = projectSelection.value;
+    const selectedProject = Projects.find(
+      (project) => project.name === selectedProjectName,
+    );
+
+    addTaskToProject(task, selectedProject);
+    openProject(selectedProject, ".project-name", ".tasks-div");
+    taskInputDialog.close();
+  });
   btnDiv.append(cancelBtn, addBtn);
+  const taskDueDateInputDiv = makeElement("div", "task-duedate-input-div");
+  const taskDueDateInput = makeElement("input", "task-duedate-input");
+  taskDueDateInput.type = "date";
+  const taskDueDateLabel = makeElement("label", "task-duedate-label");
+  taskDueDateLabel.textContent = "Due Date";
+  taskDueDateInputDiv.append(taskDueDateLabel, taskDueDateInput);
 
   taskInputDialog.append(
     taskInputHeading,
     taskNameInput,
     taskDescriptionInput,
     taskPriorityDiv,
+    taskDueDateInputDiv,
+    projectSelection,
     btnDiv,
   );
   return taskInputDialog;
