@@ -1,8 +1,8 @@
 import { Task, taskDone } from "./task.js";
 
 export const Projects = [
-  { name: "inbox", tasks: [] },
-  { name: "make a rocket", tasks: [] },
+  { name: "Inbox", tasks: [] },
+  { name: "Make a Rocket", tasks: [] },
 ];
 export function Project(projectName) {
   const project = {
@@ -50,7 +50,7 @@ export function deleteTaskFromProject(task, projectName) {
 
 const toWrite = Task("write", "high", "write a story", "today");
 
-const home = Project("home");
+const home = Project("Home");
 addTaskToProject(toWrite, home);
 // deleteProject("inbox");
 deleteTaskFromProject(toWrite, "home");

@@ -1,17 +1,196 @@
-.main-container {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
+* {
+    box-sizing: border-box;
+    text-align: left;
 }
 
-/* .projects-div {
+:root.light {
+    --text: #1e010d;
+    --background: #feecf5;
+    --primary: #840649;
+    --secondary: #f7ae59;
+    --accent: #e1da09;
+}
+
+:root.dark {
+    --text: #fee1ed;
+    --background: #13010a;
+    --primary: #f97bbe;
+    --secondary: #a65c08;
+    --accent: #f6ee1e;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--text);
+    display: grid;
+    grid-template-rows: 2fr 14fr 1fr;
+}
+
+.theme-and-title {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.theme {
+    background-color: var(--background);
+    color: var(--text);
+    border: none;
+}
+
+nav {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
+    gap: 10px;
+}
+
+nav button {
+    padding: 5px;
+    border: none;
+    color: var(--text);
+    background-color: var(--background);
+}
+
+.content {
+    display: flex;
+    /* align-items: center; */
+    gap: 20px;
+}
+
+.left-container-div {
+    min-height: 719.1px;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    /* top: 0;
+    left: 0; */
+    background-color: #3a2730;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.add-task-btn {
+    background-color: var(--background);
+    border: none;
+    color: var(--text);
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 1rem;
+    margin-left: 10px;
+    font-weight: bolder;
+}
+
+.projects-div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-heading-div {
+    width: 100%;
+    margin: 5px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+}
+
+.projects-heading {
+    margin: 5px;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.add-project-btn {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    border: none;
+    margin: 5px;
+    padding: 10px;
+    color: var(--text);
 }
 
 .show-projects-div {
+    width: 100%;
     display: flex;
     flex-direction: column;
-} */
-.left-container-div {
-    background-color: aliceblue;
+}
+
+.project-btn {
+    font-size: 1rem;
+    border: none;
+    /* margin: 5px; */
+    padding: 20px;
+    color: var(--text);
+}
+
+.right-container-div {
+    flex: 1;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: relative;
+    text-align: left;
+}
+
+.tasks-div {
+    width: 60%;
+    margin: 10px;
+}
+
+.open-sidebar-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--background);
+    border: none;
+    color: var(--text);
+    font-size: 2rem;
+}
+
+.project-name {
+    margin: 80px 0 30px 40px;
+    width: 90%;
+}
+
+.right-container-div .add-task-btn {
+    margin: 0 0 0 20px;
+    width: 90%;
+}
+
+.close-sidebar-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 10px;
+    border: none;
+    color: var(--text);
+    font-size: 2rem;
+}
+
+.left-container-div * {
+    background-color: #3a2730;
+}
+
+.add-task-btn::before,
+.add-project-btn::before {
+    content: "+ ";
 }

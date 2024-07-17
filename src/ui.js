@@ -142,7 +142,14 @@ function projectsDiv() {
 
 function leftContainer() {
   const leftContainerDiv = makeElement("div", "left-container-div");
-  leftContainerDiv.append(addTaskBtn(), projectsDiv());
+  const closeSidebarBtn = makeElement("button", "close-sidebar-btn");
+  closeSidebarBtn.textContent = "X";
+  closeSidebarBtn.addEventListener("click", () => {
+    const rightContainerDiv = document.querySelector(".right-container-div");
+    leftContainerDiv.style.width = "0px";
+    rightContainerDiv.style.marginLeft = "0px";
+  });
+  leftContainerDiv.append(closeSidebarBtn, addTaskBtn(), projectsDiv());
   return leftContainerDiv;
 }
 
@@ -162,15 +169,24 @@ function takeTaskInput() {
 
 function rightContainer() {
   const rightContainerDiv = makeElement("div", "right-container-div");
+  const openSidebarBtn = makeElement("button", "open-sidebar-btn");
+  openSidebarBtn.textContent = "☰";
+  openSidebarBtn.addEventListener("click", () => {
+    const leftContainerDiv = document.querySelector(".left-container-div");
+    leftContainerDiv.style.width = "250px";
+    rightContainerDiv.style.marginLeft = "250px";
+    // document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  });
   const projectName = makeElement("h1", "project-name");
   const tasksDiv = makeElement("div", "tasks-div");
   const addTaskBtn = makeElement("button", "add-task-btn");
   addTaskBtn.textContent = "Add Task";
   addTaskBtn.addEventListener("click", takeTaskInput);
   rightContainerDiv.append(
+    openSidebarBtn,
     projectName,
-    tasksDiv,
     addTaskBtn,
+    tasksDiv,
     projectInput(),
     tasksInput(),
   );
@@ -179,12 +195,12 @@ function rightContainer() {
   return rightContainerDiv;
 }
 
-function mainContainer() {
-  const mainContainer = makeElement("div", "main-container");
-  mainContainer.append(leftContainer(), rightContainer());
-  console.log("Main container created and appended");
-  return mainContainer;
-}
+// function mainContainer() {
+//   const mainContainer = makeElement("div", "main-container");
+//   mainContainer.append(leftContainer(), rightContainer());
+//   console.log("Main container created and appended");
+//   return mainContainer;
+// }
 
 function openProject(project, projectNameSelector, tasksDivSelector) {
   const projectName = document.querySelector(projectNameSelector);
@@ -214,7 +230,7 @@ function renderProjects(showProjectsDiv) {
 
   for (let project of Projects) {
     const projectBtn = makeElement("button", "project-btn");
-    projectBtn.textContent = `${project.name}`;
+    projectBtn.textContent = `# ${project.name}`;
     projectBtn.addEventListener("click", () => {
       openProject(project, ".project-name", ".tasks-div");
     });
@@ -224,7 +240,7 @@ function renderProjects(showProjectsDiv) {
 
 export function loadUI() {
   const content = document.querySelector(".content");
-  content.appendChild(mainContainer());
+  content.append(leftContainer(), rightContainer());
   console.log("UI loaded, main container appended to content");
 
   // Check if elements exist
