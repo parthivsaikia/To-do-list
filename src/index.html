@@ -1,18 +1,116 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="dark">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>To-do-list</title>
-    </head>
-    <body>
-        <header>
-            <div class="theme-and-title">
-                <h1>Todo X</h1>
-                <button class="theme">Theme</button>
-            </div>
-        </header>
-        <div class="content"></div>
-        <footer><p>Parthiv Saikia</p></footer>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-do-list</title>
+  </head>
+  <body>
+    <header>
+      <div class="theme-and-title">
+        <h1>Todo X</h1>
+      </div>
+    </header>
+      <nav class="nav-bar">
+        <ul class="navbar-nav">
+            <li class="logo">
+                <p class="btn-text">TODO X</p>
+                <svg
+                  width="50"
+                  height="50"
+                  aria-hidden="true"
+                  focusable="false"
+                  data-prefix="fad"
+                  data-icon="angle-double-right"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                  class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"
+                >
+                  <g class="fa-group">
+                    <path
+                      fill="currentColor"
+                      d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
+                      class="fa-secondary"
+                    ></path>
+                    <path
+                      fill="currentColor"
+                      d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
+                      class="fa-primary"
+                    ></path>
+                  </g>
+                </svg>
+            </li>
+          <li class="nav-item">
+            <button class="home-btn">
+              <span class="btn-logo">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="m21.743 12.331-9-10c-.379-.422-1.107-.422-1.486 0l-9 10a.998.998 0 0 0-.17 1.076c.16.361.518.593.913.593h2v7a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-7h2a.998.998 0 0 0 .743-1.669z"></path></svg>
+              </span>
+              <span class="btn-text">Home</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="add-btn">
+              <span class="btn-logo"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="50"
+                  height="50"
+                  viewBox="0 0 24 24"
+                  style="fill: rgba(255, 255, 255, 1); transform: ; msfilter: "
+                >
+                  <path
+                    d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"
+                  ></path></svg
+              ></span>
+              <span class="btn-text">Add Task or Project</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="projects-btn">
+              <span class="btn-logo"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="50"
+                  height="50"
+                  viewBox="0 0 24 24"
+                  style="fill: rgba(255, 255, 255, 1); transform: ; msfilter: "
+                >
+                  <path
+                    d="M20 6h-3V4c0-1.103-.897-2-2-2H9c-1.103 0-2 .897-2 2v2H4c-1.103 0-2 .897-2 2v3h20V8c0-1.103-.897-2-2-2zM9 4h6v2H9V4zm5 10h-4v-2H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-8v2z"
+                  ></path></svg
+              ></span>
+              <span class="btn-text">Projects</span>
+            </button>
+          </li>
+          <li class="nav-item">
+            <button class="profile-btn">
+              <span class="btn-logo"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="50"
+                  height="50"
+                  viewBox="0 0 24 24"
+                  style="fill: rgba(255, 255, 255, 1); transform: ; msfilter: "
+                >
+                  <path
+                    d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"
+                  ></path></svg
+              ></span>
+              <span class="btn-text">Profile</span>
+            </button>
+          </li>
+          <li class="nav-item">
+              <div class="theme-btn">
+                  <input type="checkbox" id="toggle-btn">
+                  <label for="toggle-btn"></label>
+                  <span class="btn-text">Theme</span>
+              </div>
+          </li>
+        </ul>
+      </nav>
+      <main></main>
+    </div>
+    <!-- <footer><p>Parthiv Saikia</p></footer> -->
+  </body>
 </html>
