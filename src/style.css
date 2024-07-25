@@ -30,6 +30,14 @@
 
 button {
   cursor: pointer;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+input,
+dialog {
+  background-color: var(--background);
+  color: var(--text);
 }
 
 .logo {
@@ -65,7 +73,7 @@ body {
   margin: 0;
   background-color: var(--background);
   color: var(--text);
-  display: grid;
+  /* display: grid; */
   /* grid-template-rows: 2fr 14fr 1fr; */
 }
 
@@ -103,7 +111,7 @@ nav ul {
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  height: 90%;
+  /* height: 90%; */
   /* margin-top: 4rem; */
 }
 
@@ -114,7 +122,7 @@ nav ul {
 nav ul li {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   list-style: none;
   width: 100%;
   text-decoration: none;
@@ -215,6 +223,9 @@ input:checked + label:after {
 }
 
 @media screen and (max-width: 600px) {
+  body {
+    height: 100vh;
+  }
   .nav-bar {
     bottom: 0;
     width: 100vw;
@@ -226,6 +237,8 @@ input:checked + label:after {
   }
   .navbar-nav {
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
   .nav-item {
     justify-content: center;

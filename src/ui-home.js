@@ -2,8 +2,9 @@ import woman1 from "./images/sarah.jpeg";
 import man1 from "./images/man1.jpeg";
 import man2 from "./images/man2.jpg";
 import woman2 from "./images/woman2.jpg";
+import "./style.css";
 
-function makeElement(name, className) {
+export function makeElement(name, className) {
   const element = document.createElement(name);
   element.classList.add(className);
   return element;
@@ -78,7 +79,7 @@ function customerReviewSection() {
   );
   makeReviewCard(
     "Emily Davis",
-    '"Managing my personal and work tasks has never been easier. TODO X’s ability to create separate lists and set deadlines helps me stay focused and productive."',
+    "Managing my personal and work tasks has never been easier. TODO X’s ability to create separate lists and set deadlines helps me stay focused and productive.",
     "20-01-2023",
     5,
     woman2
@@ -94,8 +95,14 @@ function customerReviewSection() {
   return customerReviewSectionDiv;
 }
 
-export function homePage() {
+function homePageDiv() {
   const homePageDiv = makeElement("div", "home-page-div");
   homePageDiv.append(heroSection(), customerReviewSection());
   return homePageDiv;
+}
+
+export function loadHomePage() {
+  const main = document.querySelector("main");
+  main.innerHTML = "";
+  main.append(homePageDiv());
 }
