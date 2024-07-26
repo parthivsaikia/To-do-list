@@ -2,6 +2,7 @@ import { makeElement } from "./ui-home";
 import { Task } from "./task";
 import { Projects, Project, addTaskToProject } from "./project";
 import { loadTasksPage, openProject } from "./ui-tasks";
+import { loadProjectsPage } from "./ui-project";
 
 export function tasksInput() {
   const taskInputDialog = makeElement("dialog", "task-input-dialog");
@@ -94,10 +95,38 @@ export function tasksInput() {
   return taskInputDialog;
 }
 
+function projectInputMod() {
+  const projectInputDialog = makeElement("dialog", "project-input-dialog");
+  const projectInputHeading = makeElement("h1", "project-input-heading");
+  projectInputHeading.textContent = "Add a Project";
+  const projectNameInput = makeElement("input", "project-name-input");
+  projectNameInput.type = "text";
+  projectNameInput.placeholder = "Project Name";
+  const cancelBtn = makeElement("button", "cancel-btn");
+  cancelBtn.textContent = "Cancel";
+  cancelBtn.addEventListener("click", () => {
+    projectInputDialog.close();
+  });
+  const addBtn = makeElement("button", "add-btn");
+  addBtn.textContent = "Add";
+  addBtn.addEventListener("click", () => {
+    event.preventDefault();
+    Project(projectNameInput.value);
+    loadProjectsPage();
+  });
+  projectInputDialog.append(
+    projectInputHeading,
+    projectNameInput,
+    cancelBtn,
+    addBtn
+  );
+  return projectInputDialog;
+}
+
 export function loadAdd() {
   const main = document.querySelector("main");
   main.innerHTML = "";
-  main.append(addTaskOrProjectDialog(), tasksInput());
+  main.append(addTaskOrProjectDialog(), tasksInput(), projectInputMod());
   const addTaskOrProject = document.querySelector(".add-task-or-project");
   addTaskOrProject.showModal();
 }
@@ -112,6 +141,10 @@ function addTaskOrProjectDialog() {
 
   const addTaskBtn = makeElement("button", "add-task-btn");
   const addProjectBtn = makeElement("button", "add-project-btn");
+  addProjectBtn.addEventListener("click", () => {
+    const projectInputDialog = document.querySelector(".project-input-dialog");
+    projectInputDialog.showModal();
+  });
   const cancelBtn = makeElement("button", "cancel-btn");
   addTaskBtn.textContent = "Add a task";
   addProjectBtn.textContent = "Add a new Project";

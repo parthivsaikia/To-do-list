@@ -33,7 +33,7 @@ export function projectPageContainer() {
   return projectPageContainerDiv;
 }
 
-function projectInput() {
+export function projectInput() {
   const addProjectHeader = makeElement("h2", "add-project-header");
   addProjectHeader.textContent = "Add Project";
   const projectInputDialog = makeElement("dialog", "project-input-dialog");
