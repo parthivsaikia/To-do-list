@@ -11,14 +11,14 @@
   src: url(fonts/logo.otf);
 }
 
-:root.light {
+.light {
   --text: #211212;
   --background: #f9f5f5;
   --primary: #532d2d;
   --secondary: #c4c492;
   --accent: #899f56;
 }
-:root.dark {
+.dark {
   --text: #eddede;
   --background: #0a0606;
   --primary: #d2acac;

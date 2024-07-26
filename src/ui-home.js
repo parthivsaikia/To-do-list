@@ -3,6 +3,7 @@ import man1 from "./images/man1.jpeg";
 import man2 from "./images/man2.jpg";
 import woman2 from "./images/woman2.jpg";
 import "./style.css";
+import { loadAdd } from "./add";
 
 export function makeElement(name, className) {
   const element = document.createElement(name);
@@ -21,6 +22,7 @@ function heroSection() {
   heroSectionInfoPara.textContent =
     "Todo X helps your manage your time efficiently";
   heroInfoBtn.textContent = "Get Started";
+  heroInfoBtn.addEventListener("click", loadAdd);
   heroSectionInfoDiv.append(
     heroSectionInfoHeading,
     heroSectionInfoPara,
