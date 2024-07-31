@@ -1,20 +1,22 @@
-import { Task, taskDone } from "./task.js";
+import { saveProjects, loadProjects } from "./storage";
+import { Task, taskMethods } from "./task";
 
-export const Projects = [
-  { name: "Inbox", tasks: [] },
-  { name: "Make a Rocket", tasks: [] },
-];
+export let Projects = loadProjects();
+
 export function Project(projectName) {
   const project = {
     name: projectName,
     tasks: [],
   };
   Projects.push(project);
+  saveProjects(Projects);
   return project;
 }
 
 export function addTaskToProject(task, project) {
-  project.tasks.push(task);
+  const newTask = { ...task, ...taskMethods(task) };
+  project.tasks.push(newTask);
+  saveProjects(Projects);
 }
 
 export function showProjects() {
@@ -29,30 +31,17 @@ export function showProjects() {
   }
 }
 
+// project.js
+
 export function deleteProject(projectName) {
-  for (let i = 0; i < Projects.length; i++) {
-    if (Projects[i].name === projectName) {
-      Projects.splice(i, 1);
-      break;
-    }
-  }
+  Projects = Projects.filter((project) => project.name !== projectName);
+  saveProjects(Projects);
 }
 
 export function deleteTaskFromProject(task, projectName) {
-  for (let i = 0; i < Projects.length; i++) {
-    if (Projects[i].name == projectName) {
-      const index = Projects[i].tasks.indexOf(task);
-      Projects[i].tasks.splice(index, 1);
-      break;
-    }
+  const project = Projects.find((p) => p.name === projectName);
+  if (project) {
+    project.tasks = project.tasks.filter((t) => t !== task);
+    saveProjects(Projects);
   }
 }
-
-const toWrite = Task("write", "high", "write a story", "today");
-
-const home = Project("Home");
-addTaskToProject(toWrite, home);
-// deleteProject("inbox");
-deleteTaskFromProject(toWrite, "home");
-showProjects();
-console.log(Projects);

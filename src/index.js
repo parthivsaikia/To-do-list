@@ -1,3 +1,9 @@
+import { loadProjects } from "./storage";
+import { Projects } from "./project";
+
+// Load projects at the start of your application
+Projects.splice(0, Projects.length, ...loadProjects());
+
 import { loadHomePage } from "./ui-home";
 import { loadProjectsPage } from "./ui-project";
 import { loadAdd } from "./add";

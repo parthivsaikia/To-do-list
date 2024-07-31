@@ -1,31 +1,33 @@
-export function Task(name, priority, description, dueDate) {
-  const getName = () => name;
-  const getPriority = () => priority;
-  const getDescription = () => description;
-  const getDueDate = () => dueDate;
-  let isCompleted = false;
-  const setName = (newName) => {
-    name = newName;
-  };
-  const setPriority = (newPriority) => {
-    priority = newPriority;
-  };
-  const setDescription = (newDescription) => {
-    description = newDescription;
-  };
-  const setDueDate = (newDueDate) => {
-    dueDate = newDueDate;
-  };
+// task.js
 
+export function Task(name, priority, description, dueDate) {
   return {
-    getName,
-    getPriority,
-    getDueDate,
-    getDescription,
-    setName,
-    setDueDate,
-    setPriority,
-    setDescription,
+    name,
+    priority,
+    description,
+    dueDate,
+    isCompleted: false,
+  };
+}
+
+export function taskMethods(task) {
+  return {
+    getName: () => task.name,
+    getPriority: () => task.priority,
+    getDescription: () => task.description,
+    getDueDate: () => task.dueDate,
+    setName: (newName) => {
+      task.name = newName;
+    },
+    setPriority: (newPriority) => {
+      task.priority = newPriority;
+    },
+    setDescription: (newDescription) => {
+      task.description = newDescription;
+    },
+    setDueDate: (newDueDate) => {
+      task.dueDate = newDueDate;
+    },
   };
 }
 

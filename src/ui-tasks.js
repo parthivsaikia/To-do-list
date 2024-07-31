@@ -23,7 +23,7 @@ export function openProject(project) {
 
 function renderTasks(project) {
   const showTasksDiv = document.querySelector(".show-tasks-div");
-  showTasksDiv.innerHTML = ""; // Clear the existing tasks
+  showTasksDiv.innerHTML = "";
 
   for (let task of project.tasks) {
     const taskDiv = makeElement("div", "task-div");
@@ -32,7 +32,7 @@ function renderTasks(project) {
     taskCheckBtn.addEventListener("change", () => {
       if (taskCheckBtn.checked) {
         deleteTaskFromProject(task, project.name);
-        renderTasks(project); // Re-render tasks after deletion
+        renderTasks(project);
       }
     });
     const taskName = makeElement("p", "task-name");

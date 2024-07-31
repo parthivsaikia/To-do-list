@@ -5,6 +5,14 @@ import woman2 from "./images/woman2.jpg";
 import "./style.css";
 import { loadAdd } from "./add";
 
+import { loadProjects, saveProjects } from "./storage";
+
+// Load projects from localStorage or initialize with default projects
+export let Projects = loadProjects();
+
+function saveProjectsToStorage() {
+  saveProjects(Projects);
+}
 export function makeElement(name, className) {
   const element = document.createElement(name);
   element.classList.add(className);
