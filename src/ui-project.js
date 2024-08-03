@@ -2,6 +2,10 @@ import { makeElement } from "./ui-home";
 import { Projects, Project, deleteProject } from "./project";
 import { loadTasksPage, openProject } from "./ui-tasks";
 import { tasksInput } from "./add";
+import "./style.css";
+import deleteIcon from "./images/deleteicon.svg";
+import task from "./images/tasks.svg";
+import addtask from "./images/addtask.svg";
 
 export function projectPageContainer() {
   const projectPageContainerDiv = makeElement("div", "project-page-container");
@@ -84,7 +88,6 @@ function makeProjectCard(project) {
 
   const projectCardDiv = makeElement("div", "project-card");
   const projectName = makeElement("p", "project-name");
-  const taskCount = makeElement("p", "task-count");
   const showDetailsBtn = makeElement("button", "show-details-btn");
 
   showDetailsBtn.addEventListener("click", () => {
@@ -93,20 +96,24 @@ function makeProjectCard(project) {
   });
 
   const addTaskBtn = makeElement("button", "add-task-btn");
+  const addTaskIcon = new Image();
+  addTaskIcon.src = addtask;
+  addTaskBtn.append(addTaskIcon);
+  const taskIcon = new Image();
+  taskIcon.src = task;
+  showDetailsBtn.append(taskIcon);
   const deleteProjectBtn = makeElement("button", "delete-project-btn");
-
+  const deleteImg = new Image();
+  deleteImg.src = deleteIcon;
+  deleteProjectBtn.append(deleteImg);
   projectCardDiv.append(
     projectName,
-    taskCount,
     showDetailsBtn,
     addTaskBtn,
     deleteProjectBtn
   );
 
   projectName.textContent = project.name;
-  taskCount.textContent = project.tasks.length;
-  showDetailsBtn.textContent = "show all tasks";
-  addTaskBtn.textContent = "add tasks";
 
   addTaskBtn.addEventListener("click", () => {
     const main = document.querySelector("main");
@@ -115,7 +122,7 @@ function makeProjectCard(project) {
     taskInput.showModal();
   });
 
-  deleteProjectBtn.textContent = "delete project";
+  deleteProjectBtn.append();
   deleteProjectBtn.addEventListener("click", () => {
     deleteProject(project.name);
     const projectsDiv = document.querySelector(".projects-div");

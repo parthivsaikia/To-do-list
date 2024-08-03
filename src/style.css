@@ -32,6 +32,7 @@ button {
   cursor: pointer;
   background-color: var(--background);
   color: var(--text);
+  border: none;
 }
 
 input,
@@ -147,6 +148,10 @@ main {
   margin-left: 5rem;
   padding: 1rem;
   margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-logo {
@@ -291,4 +296,188 @@ input:checked + label:after {
     border-radius: 50%;
     transition: 0.3s;
   }
+}
+.home-page-div {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.hero-section-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 300px;
+  justify-content: center;
+  background-image: url(images/heroImage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 30px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.hero-section-info-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero-section-info-heading,
+.hero-section-info-para {
+  text-align: center;
+}
+
+.hero-info-button {
+  padding: 15px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 30px;
+  width: 60%;
+  text-align: center;
+  border: none;
+}
+
+.customer-review-section-div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 15px;
+  gap: 15px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  line-height: 1.5;
+  background-color: var(--secondary);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.star-and-date-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.star-section {
+  font-weight: bolder;
+  color: red;
+}
+
+.name-and-image-div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bolder;
+}
+
+.add-task-or-project {
+  padding: 60px;
+  margin: auto auto;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.add-task-btn,
+.add-project-btn,
+.cancel-btn {
+  width: 60%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: var(--secondary);
+  margin: 15px auto;
+}
+
+.task-input-dialog {
+  margin: auto auto;
+  /* padding: 60px; */
+  border: none;
+  text-align: center;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.task-name-input,
+.task-description-input,
+.task-priority-div,
+.task-duedate-input-div,
+.project-selection {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+}
+
+.btn-div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-div button {
+  width: 40%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  margin: 15px auto;
+  text-align: center;
+}
+
+.task-input-heading {
+  margin: 15px;
+}
+
+.project-input-dialog {
+  margin: auto auto;
+  border: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.project-input-dialog * {
+  width: 90%;
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  padding: 10px 60px;
+}
+
+.cancel-btn,
+.delete-project-btn {
+  background-color: rgb(255 0 0/0.6);
+  border: none;
+}
+
+.add-btn {
+  background-color: var(--secondary);
+}
+
+.project-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: grey;
+  padding: 0 80px;
+  justify-content: space-between;
+}
+
+.delete-project-btn,
+.add-task-btn,
+.show-details-btn {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.delete-project-btn img,
+.add-task-btn img,
+.show-details-btn img {
+  height: 100%;
+  width: 100%;
 }

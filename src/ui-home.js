@@ -2,6 +2,7 @@ import woman1 from "./images/sarah.jpeg";
 import man1 from "./images/man1.jpeg";
 import man2 from "./images/man2.jpg";
 import woman2 from "./images/woman2.jpg";
+
 import "./style.css";
 import { loadAdd } from "./add";
 
@@ -37,9 +38,11 @@ function heroSection() {
     heroInfoBtn
   );
 
-  const heroImageDiv = makeElement("div", "hero-image-div");
-
-  heroSectionDiv.append(heroSectionInfoDiv, heroImageDiv);
+  // const heroImageDiv = makeElement("div", "hero-image-div");
+  // const heroImage = new Image();
+  // heroImage.src = heroImg;
+  // heroImageDiv.append(heroImage);
+  heroSectionDiv.append(heroSectionInfoDiv);
   return heroSectionDiv;
 }
 

@@ -114,12 +114,9 @@ function projectInputMod() {
     Project(projectNameInput.value);
     loadProjectsPage();
   });
-  projectInputDialog.append(
-    projectInputHeading,
-    projectNameInput,
-    cancelBtn,
-    addBtn
-  );
+  const btnDiv = makeElement("div", "btn-div");
+  btnDiv.append(cancelBtn, addBtn);
+  projectInputDialog.append(projectInputHeading, projectNameInput, btnDiv);
   return projectInputDialog;
 }
 
@@ -144,6 +141,7 @@ function addTaskOrProjectDialog() {
   addProjectBtn.addEventListener("click", () => {
     const projectInputDialog = document.querySelector(".project-input-dialog");
     projectInputDialog.showModal();
+    addTaskOrProjectDialog.close();
   });
   const cancelBtn = makeElement("button", "cancel-btn");
   addTaskBtn.textContent = "Add a task";
