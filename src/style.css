@@ -11,6 +11,11 @@
   src: url(fonts/logo.otf);
 }
 
+@font-face {
+  font-family: Text;
+  src: url(fonts/Quicksand-Regular.otf);
+}
+
 .light {
   --text: #211212;
   --background: #f9f5f5;
@@ -118,6 +123,11 @@ nav ul {
 
 .btn-text {
   display: none;
+}
+
+nav,
+main {
+  font-family: Text;
 }
 
 nav ul li {
@@ -504,9 +514,95 @@ input:checked + label:after {
   border-radius: 50%;
 }
 
+.show-details-btn {
+  background-color: rgb(0 0 255 /0.2);
+}
+
 .delete-project-btn img,
 .add-task-btn img,
 .show-details-btn img {
   height: 100%;
   width: 100%;
+}
+
+select {
+  background-color: var(--background);
+}
+
+.tasks-page-container-div {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  width: 95%;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 10px;
+}
+
+.show-tasks-div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 95%;
+}
+
+.task-div {
+  display: flex;
+  align-items: center;
+  /* gap: 20px; */
+  background-color: grey;
+  padding: 0.8rem;
+  justify-content: space-between;
+  /* width: 130%; */
+}
+
+.name-and-check {
+  display: flex;
+}
+
+.task-btn-div button {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.task-check-btn {
+  height: 20px;
+}
+
+.task-btn-div button img {
+  height: 100%;
+  width: 100%;
+}
+
+.task-btn-div {
+  display: flex;
+  gap: 5px;
+}
+
+.show-details-dialog {
+  margin: auto auto;
+  padding: 50px;
+  width: 400px;
+}
+
+.show-details-dialog * {
+  display: flex;
+  width: 90%;
+  margin-top: 10px;
+}
+
+/* .label {
+  margin-right: 50px;
+} */
+
+.delete-btn {
+  background-color: rgb(255 0 0/0.6);
+}
+
+.show-task-details-btn {
+  background-color: var(--secondary);
 }

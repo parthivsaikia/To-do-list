@@ -1,11 +1,22 @@
 import { deleteTaskFromProject } from "./project";
 import { makeElement } from "./ui-home";
+import deleteIcon from "./images/deleteicon.svg";
+import taskImg from "./images/tasks.svg";
+import { tasksInput } from "./add";
 
 function tasksPageContainer() {
   const tasksPageContainerDiv = makeElement("div", "tasks-page-container-div");
   const projectNameHeading = makeElement("h1", "project-name-heading");
+  const addTaskBtn = makeElement("button", "add-task-btn");
+  addTaskBtn.textContent = "Add new Task";
+  addTaskBtn.addEventListener("click", () => {
+    const main = document.querySelector("main");
+    main.append(tasksInput());
+    const input = document.querySelector(".task-input-dialog");
+    input.showModal();
+  });
   const showTasksDiv = makeElement("div", "show-tasks-div");
-  tasksPageContainerDiv.append(projectNameHeading, showTasksDiv);
+  tasksPageContainerDiv.append(projectNameHeading, addTaskBtn, showTasksDiv);
   return tasksPageContainerDiv;
 }
 
@@ -37,18 +48,28 @@ function renderTasks(project) {
     });
     const taskName = makeElement("p", "task-name");
     taskName.textContent = task.getName();
+    const nameAndCheckDiv = makeElement("div", "name-and-check");
+    nameAndCheckDiv.append(taskCheckBtn, taskName);
     const deleteBtn = makeElement("button", "delete-btn");
-    deleteBtn.textContent = "Delete";
+    // deleteBtn.textContent = "Delete";
+    const deleteImg = new Image();
+    deleteImg.src = deleteIcon;
+    deleteBtn.append(deleteImg);
     deleteBtn.addEventListener("click", () => {
       deleteTaskFromProject(task, project.name);
       renderTasks(project); // Re-render tasks after deletion
     });
     const showTaskDetailsBtn = makeElement("button", "show-task-details-btn");
-    showTaskDetailsBtn.textContent = "Show Details";
+    // showTaskDetailsBtn.textContent = "Show Details";
     showTaskDetailsBtn.addEventListener("click", () => {
       showDetailsOfTask(task).showModal();
     });
-    taskDiv.append(taskCheckBtn, taskName, showTaskDetailsBtn, deleteBtn);
+    const taskIcon = new Image();
+    taskIcon.src = taskImg;
+    showTaskDetailsBtn.append(taskIcon);
+    const taskBtnDiv = makeElement("div", "task-btn-div");
+    taskBtnDiv.append(showTaskDetailsBtn, deleteBtn);
+    taskDiv.append(nameAndCheckDiv, taskBtnDiv);
     showTasksDiv.append(taskDiv);
   }
 }
