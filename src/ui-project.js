@@ -106,12 +106,9 @@ function makeProjectCard(project) {
   const deleteImg = new Image();
   deleteImg.src = deleteIcon;
   deleteProjectBtn.append(deleteImg);
-  projectCardDiv.append(
-    projectName,
-    showDetailsBtn,
-    addTaskBtn,
-    deleteProjectBtn
-  );
+  const projectsBtnDiv = makeElement("div", "projects-btn-div");
+  projectsBtnDiv.append(showDetailsBtn, addTaskBtn, deleteProjectBtn);
+  projectCardDiv.append(projectName, projectsBtnDiv);
 
   projectName.textContent = project.name;
 

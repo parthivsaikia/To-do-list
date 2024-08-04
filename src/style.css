@@ -457,18 +457,47 @@ input:checked + label:after {
   background-color: var(--secondary);
 }
 
+.projects-div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.project-page-container {
+  display: flex;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  padding: 1rem;
+  width: 95%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .project-card {
   display: flex;
   align-items: center;
-  gap: 20px;
+  /* gap: 20px; */
   background-color: grey;
-  padding: 0 80px;
+  padding: 0 0.8rem;
   justify-content: space-between;
+  width: 130%;
 }
 
-.delete-project-btn,
-.add-task-btn,
-.show-details-btn {
+.project-page-container .add-project-btn {
+  width: 314px;
+  margin: 10px auto;
+}
+
+.projects-btn-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.project-card button {
   height: 40px;
   width: 40px;
   object-fit: cover;

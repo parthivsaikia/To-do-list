@@ -106,6 +106,8 @@ function projectInputMod() {
   cancelBtn.textContent = "Cancel";
   cancelBtn.addEventListener("click", () => {
     projectInputDialog.close();
+    const addTaskOrProject = document.querySelector(".add-task-or-project");
+    addTaskOrProject.showModal();
   });
   const addBtn = makeElement("button", "add-btn");
   addBtn.textContent = "Add";
